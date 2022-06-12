@@ -96,7 +96,38 @@
 - Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.
 
 ## Swift
-- struct와 class와 enum의 차이를 설명하시오.
+<details>
+<summary>struct와 class와 enum의 차이를 설명하시오. </summary>
+<div markdown="1">
+
+```
+- 공통점
+    - 모두 extension(확장) 가능
+
+- 차이점
+    📌 class 
+        - 참조 타입
+        - 참조타입이기 때문에 let로 선언해도 내부 프로퍼티 변경 가능
+        - 상속 가능(다중 상속은 불가능)
+        - 기본값이 없으면 이니셜라이져 필수
+        - 애플이 제공하는 Framework들(UIViewController..)는 대부분 클래스로 되어있음
+
+    📌 struct
+        - 값 타입
+        - 이니셜라이저를 자동으로 만들어줌
+        - 애플이 제공하는 Data타입들(Int, String..) 대부분 구조체로 되어있음
+
+    📌 enum
+        - 값 타입
+        - 연관된 값들을 한 곳에 묶어놓은 타입
+        - 상속 불가능
+
+(참고 https://h4njun.tistory.com/entry/class-%EC%99%80-struct-%EA%B7%B8%EB%A6%AC%EA%B3%A0-enum)
+
+```
+</div>
+</details>
+
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
 - Convenience init에 대해 설명하시오.
