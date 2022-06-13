@@ -96,6 +96,9 @@
 - Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.
 
 ## Swift
+
+
+
 <details>
 <summary>struct와 class와 enum의 차이를 설명하시오. </summary>
 <div markdown="1">
@@ -128,13 +131,48 @@
 </div>
 </details>
 
+
+
+
+<details>
+<summary>Subscripts에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 subscript
+    - 특정 member elements에 간단하게 접근할 수 있는 문법
+
+    subscript(index: Int) -> Int {
+        get {
+        // 반환 값
+        }
+        set(newValue) {
+        // set 액션
+        }
+    }
+
+    - 예를 들어, array[index]로 배열의 인스턴스 항목에 접근하는 것
+
+    - read-write / read-only 만 가능 (write-only 불가능!!)
+
+    - set에 대한 디폴트값 지정하지 않으면 기본값으로 newValue사용
+
+
+(참고 https://medium.com/@jgj455/%EC%98%A4%EB%8A%98%EC%9D%98-swift-%EC%83%81%EC%8B%9D-subscript-2288551588f9)
+
+```
+</div>
+</details>
+
+
+
+
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
 - Convenience init에 대해 설명하시오.
 - AnyObject에 대해 설명하시오.
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
-- Subscripts에 대해 설명하시오.
 - String은 왜 subscript로 접근이 안되는지 설명하시오.
 - instance 메서드와 class 메서드의 차이점을 설명하시오.
 - class 메서드와 static 메서드의 차이점을 설명하시오.
