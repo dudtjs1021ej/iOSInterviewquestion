@@ -88,6 +88,29 @@
 - TableView와 CollectionView의 차이점을 설명하시오.
 
 ## Autolayout
+
+<details>
+<summary>스토리보드를 이용했을 때 장단점을 설명하시오.</summary>
+<div markdown="1">
+
+```
+ 📌스토리보드 장점
+    - 앱의 흐름을 한 번에 볼 수 있음
+    - 코드를 몰라도 UI 구현 가능
+
+
+📌스토리보드 단점
+    - 앱의 규모가 커지면 스토리보드 로딩 시간이 길어짐
+    - 다수의 인원이 처리하게 되면 merge conflict가 나서 협업이 힘듦
+    - 스토리보드로 만든 뷰는 재사용이 어렵
+    - MVVM패턴 사용 불가능
+
+```
+</div>
+</details>
+
+
+
 - 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
 - hugging, resistance에 대해서 설명하시오.
 - Intrinsic Size에 대해서 설명하시오.
