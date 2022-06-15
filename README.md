@@ -47,7 +47,33 @@
 </details>
 
 
-- 앱의 콘텐츠나 데이터 자체를 저장/보관하는 특별한 객체를 무엇이라고 하는가?
+<details>
+<summary>앱의 콘텐츠나 데이터 자체를 저장/보관하는 특별한 객체를 무엇이라고 하는가? </summary>
+<div markdown="1">
+
+```
+📌 UserDefaults
+    -[데이터, 키]로 데이터 저장
+    - 앱이 꺼져도 특정한 값이 저장되길 원하는 경우
+    - 앱이 사라지면 같이 사라짐 
+    - ex) 최근검색기록, 로컬알림설정 여부..
+
+참고 : https://lemon-dev.tistory.com/entry/NSUserDefaults
+```
+
+
+```swift
+// 데이터 저장
+UserDefaults.standard.set(value, forKey: "키")
+
+// 데이터 꺼내오기
+UserDefaults.standard.string(forKey: "키")
+```
+</div>
+</details>
+
+
+
 - 앱 화면의 콘텐츠를 표시하는 로직과 관리를 담당하는 객체를 무엇이라고 하는가?
 - App thinning에 대해서 설명하시오.
 ###
