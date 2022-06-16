@@ -250,7 +250,28 @@ UserDefaults.standard.string(forKey: "키")
 - Closure와 함수와의 관계에 대해 설명하시오.
 
 ## ARC
-- ARC란 무엇인지 설명하시오.
+
+
+<details>
+<summary>ARC란 무엇인지 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 ARC
+    - Automatic Reference Counting의 약자
+    - ARC는 더이상 필요하지 않은 클래스 인스턴스를 자동으로 메모리에서 해제함
+        -> RC(Reference Count)를 통해 필요하지 않은 인스턴스를 알 수 있음
+        -> 인스턴스를 참조되고 있는 count를 기록하고 0이되면 인스턴스를 참조하는 곳이 없는 것을 알고 자동으로 인스턴스를 메모리에서 해제시킴
+
+    - 강한참조 : RC를 증가시킴
+    - 약한참조 : RC를 증가시키지 않음, 다른 인스턴스를 먼저 할당 해제 할 수 있는 경우 사용 
+
+참고 - https://zeddios.tistory.com/1213
+```
+</div>
+</details>
+
+
 - Retain Count 방식에 대해 설명하시오.
 - Strong 과 Weak 참조 방식에 대해 설명하시오.
 - 순환 참조에 대하여 설명하시오.
