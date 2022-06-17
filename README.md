@@ -74,7 +74,31 @@ UserDefaults.standard.string(forKey: "키")
 
 
 
-- 앱 화면의 콘텐츠를 표시하는 로직과 관리를 담당하는 객체를 무엇이라고 하는가?
+
+
+<details>
+<summary>앱 화면의 콘텐츠를 표시하는 로직과 관리를 담당하는 객체를 무엇이라고 하는가? </summary>
+<div markdown="1">
+
+```
+ 📌 ViewController
+    - 주요한 데이터의 변화에 대한 응답으로 뷰들의 컨텐트들 업데이트함
+
+    - 뷰들과 함께 사용자와의 대화에 응답 -> 이벤트 핸들링(클릭같은)
+
+    - 뷰들의 사이즈 재조정과 인터페이스 레이아웃 관리
+
+    - 종류는 두가지 1.일반적인 ContentViewController 
+                 2. 여러개의 VC를 제어하는 ContainerViewController (ex 탭바)
+
+
+
+(참고 https://o-o-wl.tistory.com/43)
+
+```
+</div>
+</details>
+
 - App thinning에 대해서 설명하시오.
 ###
 - 앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가?
