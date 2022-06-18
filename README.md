@@ -99,8 +99,36 @@ UserDefaults.standard.string(forKey: "키")
 </div>
 </details>
 
-- App thinning에 대해서 설명하시오.
+
+
+
+<details>
+<summary>App thinning에 대해서 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 App Thinning
+    - 앱이 설치될 때, 앱 스토어와 운영체제가 디바이스의 특성에 맞게 설치되도록 하는 설치 최적화 기술
+    - 구성으로는 슬라이싱, 비트코드, 주문형 리소스가 있음
+
+    📍 슬라이싱
+        - 사용자가 앱스토어로 앱을 설치 -> 사용자의 기기와 운영체제 버전에 맞춰 가장 적합한 조각(variant)을 다운로드
+
+    📍 비트코드
+        - 기계언어로 번역되기 이전 단계의 중간표현 -> 앱의 새 버전을 앱스토어에 제출할 필요없이 알아서 최적화시킴
+
+    📍 주문형 리소스(On-Demand Resource)
+        - 이미지나 사운드같은 리소스를 키워드로 태그할 수 있고 태그별로 그룹을 요청할 수 있음
+        - 필요할 때 다운로드를 하는 것 (ex 인앱 구매)
+        
+참고 - https://ttuk-ttak.tistory.com/42
+```
+</div>
+</details>
+
 ###
+
+
 - 앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가?
 - @Main에 대해서 설명하시오.
 - 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
