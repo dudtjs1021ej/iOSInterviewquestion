@@ -126,10 +126,55 @@ UserDefaults.standard.string(forKey: "키")
 </div>
 </details>
 
+
+
+
 ###
+<details>
+<summary>앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가? </summary>
+<div markdown="1">
+
+```
+📌 Objective-C
+    - C언어 기반 프로그램으로, 시작점은 main함수임
+    
+📌 swift
+    - C언어 기반이 아니기 때문에 main파일이 존재하지 않음 
+    - 따라서 시작 진입점도 존재하지 않음
+
+하지만 시작 진입점이 없으면 안되기 때문에 annotation으로 표기
+```
+
+```swift
+import UIKit
+
+@UIApplicationMain // 어노테이션으로 표기
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    }
+}
+```
+
+```
+📌 UIApplication 함수
+    - 코코아 터치 프레임워크에서 앱의 lifecycle을 시작하는 함수
+        -> UIApplication 객체의 인스턴스 생성, 
+           앱의 기반을 마련 == 앱 로딩 프로세스
+
+참고 - https://jinshine.github.io/2018/05/28/iOS/%EC%95%B1%EC%9D%98%20%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0(App%20Life%20Cycle)%EC%99%80%20%EC%95%B1%EC%9D%98%20%EA%B5%AC%EC%A1%B0(App%20Structure)/
+```
+</div>
+</details>
 
 
-- 앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가?
+
+
+
 - @Main에 대해서 설명하시오.
 - 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
 - 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오.
