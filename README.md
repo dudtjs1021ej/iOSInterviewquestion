@@ -234,11 +234,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+
+<details>
+<summary>Safearea에 대해서 설명하시오.</summary>
+<div markdown="1">
+
+```
+ 📌 Safearea
+    - 컨텐츠가 가려지지 않는 것을 보장하는 영역
+
+    - 어떤 content(status bar, navigation bar, toolbar, tab bar, etc) 에도 덮이지 않는 뷰를 그리기 위해서 제공
+
+```
+</div>
+</details>
+
 - 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
 - hugging, resistance에 대해서 설명하시오.
 - Intrinsic Size에 대해서 설명하시오.
-- 스토리보드를 이용했을때의 장단점을 설명하시오.
-- Safearea에 대해서 설명하시오.
+
 - Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.
 
 ## Swift
