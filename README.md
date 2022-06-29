@@ -326,11 +326,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+<details>
+<summary>Any와 AnyObject에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 Any
+    - 함수타입을 포함한 모든 타입의 인스턴스
+
+📌 AnyObject
+    - 모든 클래스 타입의 인스턴스
+
+```
+
+```swift
+// Any -> 모든 타입이 인스턴스로 가능, 여러 자료형을 배열에 넣을 수 있음
+var anyArray: [Any] = [1, "hi", true, 1.0] 
+
+
+// AnyObject -> 클래스타입이 인스턴스로!
+class aType { }
+class bType { }
+var anyObjectArray: [AnyObject] = [aType(), bType()]
+```
+</div>
+</details>
+
+
+
 
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
 - Convenience init에 대해 설명하시오.
-- AnyObject에 대해 설명하시오.
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
 - String은 왜 subscript로 접근이 안되는지 설명하시오.
