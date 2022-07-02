@@ -172,7 +172,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </details>
 
 
+<details>
+<summary>@Main에 대해 설명하시오. </summary>
+<div markdown="1">
 
+```
+📌 @Main
+    - 프로그램 실행 시작 시 진입점으로 타입을 지정하기 위한 Swift 언어의 기능
+    - 사용자는 탑 레벨의 코드를 작성하는 대신 @main단일 유형의 속성을 사용
+    - @UIApplicationMain 대신 @main을 사용함으로 타입 기반의 스위프트 코드에서 이상적인 진입점을 알려줌
+```
+</div>
+</details>
 
 
 - @Main에 대해서 설명하시오.
