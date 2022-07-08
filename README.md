@@ -186,8 +186,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </details>
 
 
-- @Main에 대해서 설명하시오.
-- 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
+
+
+<details>
+<summary> 앱이 foreground에 있을 때와 background에 있을 때 제약사항 </summary>
+<div markdown="1">
+
+```
+ 📌 foreground
+    - 사용자가 보고 있는 화면
+    - CPU를 비롯한 시스템 자원의 우선순위가 높은 상태
+    - 메모리 및 기타 시스템 리소스에 대해서 background보다 높은 우선순위를 가짐 -> 시스템은 이러한 리소스를 사용할 수 있도록 필요에 따라 background 앱을 종료
+
+
+
+
+ 📌 background
+    - 홈화면에 들어가서 사용자한테 보이지 않는 상태
+    - 가능한 적은 메모리공간을 사용해야함
+    - 우선순위에 의해 foreground task보다 더 낮은 자원을 할당 
+
+(참고 https://snowee.tistory.com/39)
+
+```
+</div>
+</details>
 - 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오.
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
