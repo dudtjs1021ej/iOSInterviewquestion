@@ -211,6 +211,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 </div>
 </details>
+
+
+
+
+<details>
+<summary> 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오. </summary>
+<div markdown="1">
+
+```
+ //애플리케이션이 실행된 직후 사용자의 화면에 보여지기 직전에 호출 
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool	
+
+//애플리케이션이 최초 실행될 때 호출되는 메소드 
+func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool		
+
+//애플리케이션이 InActive 상태로 전환되기 직전에 호출  task 일시정지, 타이머 비활성화, 일시정지(게임)
+func applicationWillResignActive(_ application: UIApplication)	
+
+//애플리케이션이 백그라운드 상태로 전환된 직후 호출
+func applicationDidEnterBackground(_ application: UIApplication)	
+
+//애플리케이션이 Active 상태가 되기 직전, 화면에 보여지기 직전에 호출 
+func applicationWillEnterForeground(_ application: UIApplication)	
+
+//애플리케이션이 Active 상태로 전환된 직후 호출
+func applicationDidBecomeActive(_ application: UIApplication)
+
+//애플리케이션이 종료되기 직전에 호출 
+func applicationWillTerminate(_ application: UIApplication)
+
+```
+</div>
+</details>
+
+
+- @Main에 대해서 설명하시오.
 - 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오.
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
