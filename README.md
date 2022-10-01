@@ -246,15 +246,37 @@ func applicationWillTerminate(_ application: UIApplication)
 </details>
 
 
+
+<details>
+<summary> GCD API 동작 방식과 필요성에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+ GCD
+    - Grand Central Dispatch
+    - 앱에서 어떠한 작업을 비동기적으로 동시에 수행할 수 있게 해줘서 필요
+
+    
+    - 앱 실행 -> 시스템이 자동으로 메인 스레드 위에 동작하는 Main Queue 만듦
+        -> 추가적으로 Global Queue를 만들어서 관리
+
+
+    - 보통 UI 관련 작업은 Main Queue에서 함 (Serial queue)
+    - 그 외의 작업은 추가적으로 Global Queue(Concurrent Queue) 를 만들어서 작업 -> UI 와 관련없는 작업들 비동기적으로 관리
+
+
+```
+</div>
+</details>
+
+
 - @Main에 대해서 설명하시오.
-- 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오.
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
 - App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
-- GCD API 동작 방식과 필요성에 대해 설명하시오.
 - Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
 ###
 - iOS 앱을 만들고, User Interface를 구성하는 데 필수적인 프레임워크 이름은 무엇인가?
