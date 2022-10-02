@@ -219,7 +219,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 <summary> 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오. </summary>
 <div markdown="1">
 
-```
+```swift
  //애플리케이션이 실행된 직후 사용자의 화면에 보여지기 직전에 호출 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool	
 
@@ -270,6 +270,29 @@ func applicationWillTerminate(_ application: UIApplication)
 </details>
 
 
+
+<details>
+<summary> iOS 앱을 만들고, User Interface를 구성하는 데 필수적인 프레임워크 이름은 무엇인가? </summary>
+<div markdown="1">
+
+```
+ UIKit 
+ - 프레임워크는 사용자의 인터페이스를 관리하고, 이벤트를 처리하는게 주 목적인 프레임워크
+
+ - UIkit에서 주로 처리하는 사용자 이벤트로는 제스처 처리, 애니메이션, 그림 그리기, 이미지 처리, 텍스트 처리 등이 있음
+
+ - 테이블뷰, 슬라이더, 버튼, 텍스트 필드, 얼럿 창 등 애플리케이션의 화면을 구성하는 요소도 있음
+
+ - UI를 구현하려면 반드시 UIKit를 상속해야 함
+
+출처 : https://www.notion.so/iOS-User-Interface-bb50a802de9949e59563e3b5d8f4c8de
+
+
+```
+</div>
+</details>
+
+
 - @Main에 대해서 설명하시오.
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
@@ -279,7 +302,6 @@ func applicationWillTerminate(_ application: UIApplication)
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
 - Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
 ###
-- iOS 앱을 만들고, User Interface를 구성하는 데 필수적인 프레임워크 이름은 무엇인가?
 - Foundation Kit은 무엇이고 포함되어 있는 클래스들은 어떤 것이 있는지 설명하시오.
 - Delegate란 무엇인지 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오.
 - NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
