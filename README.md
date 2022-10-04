@@ -293,7 +293,36 @@ func applicationWillTerminate(_ application: UIApplication)
 </details>
 
 
-- @Main에 대해서 설명하시오.
+<details>
+<summary> UIWindow 객체의 역할은 무엇인가? </summary>
+<div markdown="1">
+
+```
+UIWindow
+- 부모는 UIView
+
+- 스크린에 나타나는 모든 View는 Window로 묶여 있으며, 각 Window는 앱의 다른 View와 독립적
+
+- 기기의 기본화면에 앱의 콘텐츠를 표시하는 하나의 Window만 있으면 됨
+
+- 뷰의 계층 구조에서 최상의 뷰의 역할을 하며 뷰들을 담는 컨테이너 역할
+
+코드로 화면을 구현할 때
+    -  window를 직접 생성
+스토리보드를 통해 화면을 구현할 경우
+    - window가 자동으로 생성
+
+출처: https://zeddios.tistory.com/283 [ZeddiOS:티스토리]
+
+
+```
+</div>
+</details>
+
+
+
+
+
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
