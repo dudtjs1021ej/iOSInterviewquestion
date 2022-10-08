@@ -552,6 +552,22 @@ var anyObjectArray: [AnyObject] = [aType(), bType()]
 </div>
 </details>
 
+<details>
+<summary> Strong 과 Weak 참조 방식에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+강한참조(Strong)
+- 레퍼런스 카운트가 증가됨
+
+약한참조(Weak)
+- 객체를 참조하고 레퍼런스 카운트에 변화 없음
+- ARC에서 자동으로 객체의 메모리 해제시켜줌
+(참고 https://velog.io/@wook4506/iOS-Swift-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%B0%B8%EC%A1%B0-%EB%B0%A9%EB%B2%95-strong-weak-unowned)
+
+```
+</div>
+</details>
 
 - Retain Count 방식에 대해 설명하시오.
 - Strong 과 Weak 참조 방식에 대해 설명하시오.
