@@ -496,7 +496,28 @@ var anyObjectArray: [AnyObject] = [aType(), bType()]
 </details>
 
 
+<details>
+<summary>mutating 키워드에 대해 설명하시오. </summary>
+<div markdown="1">
 
+```
+📌 mutating
+struct, enum 같은 값 타입은 인스턴스 메소드 내부에서 수정x
+따라서 값 타입 속성을 수정할 때 mutating 키워드 사용
+```
+
+```swift
+struct Point {
+	var x = 0.0, y = 0.0
+    
+	mutating func moveXY(x: Double, y: Double {
+		self = Point(x: self.x + x, y: self.y + y)
+	}
+}
+```
+
+</div>
+</details>
 
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
@@ -515,7 +536,6 @@ var anyObjectArray: [AnyObject] = [aType(), bType()]
 - 프로토콜이란 무엇인지 설명하시오.
 - Protocol Oriented Programming과 Object Oriented Programming의 차이점을 설명하시오.
 - Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
-- mutating 키워드에 대해 설명하시오.
 - 탈출 클로저에 대하여 설명하시오.
 - Extension에 대해 설명하시오.
 - Extension 내부에서 함수를 override할 수 있는지 설명하시오.
