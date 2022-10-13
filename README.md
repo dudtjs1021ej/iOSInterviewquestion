@@ -392,8 +392,26 @@ UIWindow
 </div>
 </details>
 
+
+<details>
+<summary>hugging, resistance에 대해서 설명하시오.</summary>
+<div markdown="1">
+
+```
+ - 뷰의 제약사항을 걸어줄 때 우선순위 지정
+
+📌 hugging priority
+	- hugging이 크면 자신의 크기 유지, 작으면 크기가 커짐
+
+📌 resistance priority
+	- resistance가 크면 자신의 크기 유지, 작으면 크기가 작아짐
+
+```
+</div>
+</details>
+
+
 - 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
-- hugging, resistance에 대해서 설명하시오.
 - Intrinsic Size에 대해서 설명하시오.
 
 - Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.
