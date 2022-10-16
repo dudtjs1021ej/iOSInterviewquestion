@@ -341,10 +341,37 @@ main스레드 에서만 UI를 처리해야 함
 </div>
 </details>
 
+<details>
+<summary> App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 Not Running
+    - 앱이 아직 실행중이지 않은 상태
+
+📌 Foreground - Inactive (비활성화)
+    - 앱이 실행중이지만 사용자로부터 이벤트를 받을 수 없는 상태
+    - ex) 전화가 와서 앱을 실행 못하는 상황
+
+📌 Foreground - active (활성화)
+    - 앱이 실제 실행중이고 사용자에게 이벤트를 받아서 상호작용을 할 수 있는 상황
+
+📌 Background - running
+    - 홈화면으로 나가거나 다른 앱을 실행해 현재 앱이 실질적으로 동작하지 않는 상황
+    - ex) 음악앱을 닫아도 노래는 재생됨
+
+ 📌 Background - suspensed
+    - 앱을 다시 시작했을 때 최근 작업을 빠르게 보여주기 위해 메모리 관련 데이터만 저장되어 있는 상황
+
+```
+</div>
+</details>
+
+
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
-- App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
+
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
 - Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
