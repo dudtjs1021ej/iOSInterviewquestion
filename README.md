@@ -367,6 +367,33 @@ main스레드 에서만 UI를 처리해야 함
 </div>
 </details>
 
+<details>
+<summary> Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오. </summary>
+<div markdown="1">
+
+```
+
+📍QoS (Quality-of-service)
+Qos는 원래 네트워크에서 사용하는 용어로 서비스의 중요도에 따라 중요한 서비스에 더 많은 자원을 할당하는 것, 또는 이 중요도를 뜻하는 말
+
+📌userInteractive
+메인 스레드에서 작업하거나 사용자 인터페이스를 새로 고치거나 애니메이션을 수행하는 등 사용자와 상호 작용하는 작업
+
+📌Initiated
+사용자가 시작한 작업으로 저장된 문서를 열거나 사용자가 사용자 인터페이스에서 무언가를 클릭 할 때 작업을 수행하는 등 즉각적인 결과가 필요할 때 사용
+
+📌default
+기본값
+
+📌utility
+완료하는데 약간의 시간이 걸리고 데이터 다운로드 또는 가져오기와 같이 즉각적인 결과가 필요하지 않은 작업
+
+📌background
+인덱싱, 동기화 및 백업과 같이 백그라운드에서 작동하고 사용자에게 표시되지 않는 작업
+
+```
+</div>
+</details>
 
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
 - scene delegate에 대해 설명하시오.
@@ -374,7 +401,7 @@ main스레드 에서만 UI를 처리해야 함
 
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
-- Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
+
 ###
 - Foundation Kit은 무엇이고 포함되어 있는 클래스들은 어떤 것이 있는지 설명하시오.
 - Delegate란 무엇인지 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오.
