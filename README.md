@@ -608,9 +608,44 @@ struct Point {
 </div>
 </details>
 
+
+
+<details>
+<summary>Convenience init에 대해 설명하시오.</summary>
+<div markdown="1">
+
+```
+📌 Convenience init
+	- 보조 이니셜라이저로, 클래스의 원래 이니셜라이저인 init을 도와주는 역할
+	- 같은 클래스에서 다른 이니셜라이저를 호출해야함
+	- init의 파라미터 중 일부를 기본값을 설정해서, convenience init안에서 init을 호출하여 초기화 진행할 수 있음
+
+```
+
+```swift
+class Person {
+    var name: String
+    var age: Int
+    var gender: String
+
+    init(name: String, age: Int, gender: String) {
+        self.name = name
+        self.age = age
+        self.gender = gender
+    }
+		
+		convenience init(age: Int, gender: String) {
+        self.init(name: "zedd", age: age, gender: gender)
+    }
+}
+```
+
+</div>
+</details>
+
+
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
-- Convenience init에 대해 설명하시오.
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
 - String은 왜 subscript로 접근이 안되는지 설명하시오.
