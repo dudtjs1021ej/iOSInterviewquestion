@@ -644,7 +644,30 @@ class Person {
 </details>
 
 
-- class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
+
+<details>
+<summary> class의 성능을 향상 시킬수 있는 방법들을 나열해보시오. </summary>
+<div markdown="1">
+
+```
+
+- heap보다는 stack메모리를 할당하려고 노력
+    * class보단 struct나 enum을 사용
+    * class는 heap할당, struct나 enum은 stack할당
+
+- referecn counting을 적게 만듦
+    * 클래스에서 스트링 타입의 변수 사용을 줄임
+    * string은 struct타입이지만 문자열의 콘텐츠를 heap에 저장하기 때문
+
+- dynamic dispatch(런타임에 정해짐)(다형성때문에 사용)보다 static dipatch(컴파일 타임에 정해짐)를 지향
+    * 클래스를 선언할 때 상속되지 않는 클래스에 final을 붙이면 성능이 향상
+
+```
+</div>
+</details>
+
+
+
 - Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
