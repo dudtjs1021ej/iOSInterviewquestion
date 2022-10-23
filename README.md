@@ -666,9 +666,25 @@ class Person {
 </div>
 </details>
 
+<details>
+<summary>Copy On Write는 어떤 방식으로 동작하는지 설명하시오. </summary>
+<div markdown="1">
 
+```
+📌 Copy On Write 동작방식
+값타입의 데이터는 값을 참조하지 않고 복사함 
+But 매번 복사 -> 값이 변경될 필요가 없어도 새로운 메모리 공간을 할당 -> 메모리 낭비, 오버헤드
 
-- Copy On Write는 어떤 방식으로 동작하는지 설명하시오.
+따라서 Copy on write 사용
+-> 데이터 복사하면 실제로 값을 복사x 동일한 값을 참조함
+-> 값이 변경(Write)될 때, 값을 복사해 변경을 적용
+
+즉, 데이터 복사 시 실제로 값을 복사하지 않고
+동일한 값을 참조하다가 데이터 변경이 발생될 시에 복사해 값을 변경하는 기법
+```
+</div>
+</details>
+
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
 - String은 왜 subscript로 접근이 안되는지 설명하시오.
