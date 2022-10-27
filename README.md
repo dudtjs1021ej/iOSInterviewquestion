@@ -698,7 +698,22 @@ But 매번 복사 -> 값이 변경될 필요가 없어도 새로운 메모리 �
 </div>
 </details>
 
-- Optional 이란 무엇인지 설명하시오.
+<details>
+<summary> Optional 이란 무엇인지 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 Optional
+nil을 사용할 수 있는 타입과 사용할 수 없는 타입을 구분하고, 사용할 수 있는 타입을 가리켜 옵셔널 타입이라고 부름
+
+* 자료형 뒤에 ?를 붙여 옵셔널 타입으로 만듦
+* nil은 값이 없음을 의미하는 값
+
+
+```
+</div>
+</details>
+
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
 - String은 왜 subscript로 접근이 안되는지 설명하시오.
 - instance 메서드와 class 메서드의 차이점을 설명하시오.
