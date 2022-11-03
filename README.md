@@ -757,7 +757,20 @@ struct [구조체 이름] {
 - Protocol Oriented Programming과 Object Oriented Programming의 차이점을 설명하시오.
 - Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
 - 탈출 클로저에 대하여 설명하시오.
-- Extension에 대해 설명하시오.
+<details>
+<summary> Extension에 대해 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 extension
+- 기존 존재하는 클래스,구조체,열거형,프로토콜 타입에 새로운 기능을 추가할 수 있게 해줌
+- 내부 소스를 접근할 수 없는 원본 타입들에 대해 새로운 기능을 부여할 수 있고, 특정 타입의 기능 및 준수하는 프로토콜별 구현부를 분리 -> 가독성 높일 수 있음
+
+```
+
+</div>
+</details>
+
 - Extension 내부에서 함수를 override할 수 있는지 설명하시오.
 - 접근 제어자의 종류엔 어떤게 있는지 설명하시오.
 - defer란 무엇인지 설명하시오.
