@@ -464,7 +464,27 @@ Qos는 원래 네트워크에서 사용하는 용어로 서비스의 중요도�
 - Delegate란 무엇인지 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오.
 - NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
 - App Bundle의 구조와 역할에 대해 설명하시오.
-- 모든 View Controller 객체의 상위 클래스는 무엇이고 그 역할은 무엇인가?
+<details>
+<summary> 모든 View Controller 객체의 상위 클래스는 무엇이고 그 역할은 무엇인가? </summary>
+<div markdown="1">
+
+```
+📍 모든 View Controller 객체의 상위 클래스는 UIViewController
+
+- 뷰의 내용 업데이트
+- 뷰와 사용자의 상호작용에 응답
+- 뷰의 크기 조정 & 전체적인 레이아웃 관리
+
+```
+</div>
+</details>
+
+
+
+
+
+
+
 - 자신만의 Custom View를 만들려면 어떻게 해야하는지 설명하시오.
 - View 객체에 대해 설명하시오.
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
