@@ -899,7 +899,118 @@ struct [구조체 이름] {
 
 ## Architecture
 - MVVM, MVI, Ribs, VIP 등 자신이 알고있는 아키텍쳐를 설명하시오.
-- 의존성 주입에 대하여 설명하시오.
+
+<details>
+<summary> 의존성 주입에 대하여 설명하시오. </summary>
+<div markdown="1">
+
+```
+📌 의존성이란?
+- 의존성은 쉽게 말해 함수에 필요한 클래스나 참조 변수에 의존하는 것
+```
+
+(1) B클래스가 A클래스에 의존성이 있는 경우
+
+```swift
+class A{
+    var num: Int = 1
+}
+
+class B{
+    var internalVariable = A()
+}
+
+let b = B()
+print(b.internalVariable.num) // 1
+```
+
+```
+B클래스는 A클래스를 내부에 변수로 사용하고 있음
+이로써 B클래스는 A클래스에 의존성이 생김
+-> 만일 A클래스에 문제가 생긴다면 이를 의존하고 있는 B클래스에도 문제가 생길 수 있어 재사용성이 낮아짐
+```
+
+(2) 주입 (injection)
+
+```swift
+class A{
+    var num: Int
+
+    init(num : Int){
+        self.num = num
+    }
+
+    func setNum(num: Int){
+        self.num = num
+    }
+}
+
+let a = A(Int(3)) // 외부에서 객체 생성
+print(a.num)
+
+a.setNum(Int(5)) // 객체 생성
+```
+
+```
+내부가 아닌 외부에서 객체를 생성해서 넣어주는 것을 주입
+-> 외부에서 객체를 생성해 주입시킴
+```
+
+
+
+(3) 의존성 주입 (dependency injection) -> 하지만 DIP는 만족하지 않음
+
+```swift
+class A{
+    var aNum: Int = 1
+}
+class B{
+    var bNum: A
+    init(num: A){
+        self.bNum = num
+    }
+}
+let b = B(A())
+```
+
+```
+의존 관계 역전 법칙 (DIP)
+1. 상위 모듈은 하위 모듈에 의존해서는 안된다. 상위 모듈과 하위 모듈 모두 추상화에 의존해야 한다.
+2. 추상화는 세부 사항에 의존해서는 안된다. 세부사항이 추상화에 의존해야 한다.
+
+```
+
+
+
+(4) DIP 만족하는 의존성 주입
+
+```swift
+protocol DIInterface: AnyObject{
+    var num: Int{get set}
+}
+class A: DIInterface{
+    var aNum = 1
+}
+class B{
+    var bNum: DIInterface
+    init(num: DIInterface){
+        self.bNum = num
+    }
+}
+
+let b = B(A())
+```
+
+```
+A, B 객체가 모두 의존(A → 프로토콜 ← B)하고 있는 구조
+```
+
+[참고](https://silver-g-0114.tistory.com/143)
+
+
+</div>
+</details>
+
 
 ## SwiftUI
 - @State에 대해서 설명하시오.
