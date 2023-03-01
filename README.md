@@ -461,7 +461,61 @@ Qos는 원래 네트워크에서 사용하는 용어로 서비스의 중요도�
 </details>
 
 
-- Delegate란 무엇인지 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오.
+<details>
+<summary> Delegate란 무엇인지 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오. </summary>
+<div markdown="1">
+
+## Delegate란?
+
+- 대리자라는 뜻
+- **객체 지향 프로그래밍에서 하나의 객체가 모든 일을 처리하는 것이 아니라 
+처리 해야 할 일 중 일부를 다른 객체에 넘기는 것**
+
+```swift
+extension ViewController: UITextFieldDelegate {
+
+		func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		      label.text = textField.text
+		      return true
+		}
+}
+```
+
+- `UITextFieldDelegate` 를 채택하고 리턴키가 작동될 때 호출되는 `textFieldShouldReturn` 메소드 안에서 처리할 코드를 작성
+
+```swift
+textField.delegate = self
+```
+
+- 역할을 넘겨 누가 수행할 것인지에 대해 작성
+- 이 delegate은 self(=ViewController)가 수행할 것이란 의미
+
+### retain
+
+- 메모리가 해제되지 않아서 **낭비**되는 현상을 의미 (Memory Leak, 메모리 누수)
+- **Retain은 객체를 만들어냈을때 즉 ,인스턴화를 시켜줄때 생김**
+- **인스턴스는 클래스로부터 생성된 객체**
+
+## Delegate은 retain될까?
+
+- **Delegate는 Protocol을 채택 → class가 아님 → retain안되겠군 → 아님!**
+- **프로토콜을 채택할 때는 Class - Only - Protocol 이라는 클래스 전용 프로토콜을 사용해야함 
+→프로토콜이 class타입으로 바뀌게 됨 → retain 됨**
+- `weak`를 사용해 retain 방지함
+
+### Reference
+
+[https://fomaios.tistory.com/entry/iOS-면접질문-Delegate는-retain이-될까](https://fomaios.tistory.com/entry/iOS-%EB%A9%B4%EC%A0%91%EC%A7%88%EB%AC%B8-Delegate%EB%8A%94-retain%EC%9D%B4-%EB%90%A0%EA%B9%8C)
+
+</div>
+</details>
+
+
+
+
+
+
+
 - NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
 - App Bundle의 구조와 역할에 대해 설명하시오.
 <details>
