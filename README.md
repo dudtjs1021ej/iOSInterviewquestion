@@ -538,8 +538,79 @@ textField.delegate = self
 
 
 
+<details>
+<summary>자신만의 Custom View를 만들려면 어떻게 해야하는지 설명하시오. </summary>
+<div markdown="1">
 
-- 자신만의 Custom View를 만들려면 어떻게 해야하는지 설명하시오.
+## 1. xib 사용
+
+<img width="311" alt="image" src="https://user-images.githubusercontent.com/77915491/222644391-e9fe4364-9c48-4df2-8dec-5623e9935e2e.png">
+
+swift, xib파일을 만들어 사용하려는 UIView의 클래스를 CustomView로 연결
+
+## 2. code로만 구현
+
+### UIView를 상속한 CustomView
+
+```swift
+class CustomView: UIView {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        print(#function)
+        loadView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        print(#function)
+        loadView()
+    }
+    
+    private func loadView() {
+        let purpleView = makeView()
+        purpleView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 30)
+        addSubview(purpleView)
+        
+        let label = makeLabel()
+        label.frame = CGRect(x: 0, y: 50, width: bounds.width, height: 20)
+        addSubview(label)
+    }
+    
+    private func makeView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .purple
+        return view
+    }
+    
+    private func makeLabel() -> UILabel {
+        let label = UILabel()
+        label.text = "커스텀2"
+        label.textAlignment = .center
+        return label
+    }
+}
+```
+
+### ViewController
+
+```swift
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let customView = CustomView(frame: CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: 200))
+        
+        view.addSubview(customView)
+    }
+}
+```
+
+</div>
+</details>
+
+
 - View 객체에 대해 설명하시오.
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
 - UIWindow 객체의 역할은 무엇인가?
