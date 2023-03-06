@@ -687,7 +687,30 @@ class ViewController: UIViewController {
 - 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
 - Intrinsic Size에 대해서 설명하시오.
 
-- Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.
+
+<details>
+<summary>Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.</summary>
+<div markdown="1">
+
+### leading / trailing
+
+- 글자가 시작하는 방향 / 글자가 끝나는 방향
+
+### left / right
+
+- 화면 기준 왼쪽 / 화면 기준 오른쪽
+
+**leading, trailing을 권장**함 왜일까?
+
+<img width="698" alt="image" src="https://user-images.githubusercontent.com/77915491/223102322-8a1795e4-ad94-465a-9445-36575695772f.png">
+
+우리나라는 상관없지만 **아랍어**는 **오른쪽에서 왼쪽**으로 읽으므로 leading, trailing을 써 
+사용자 경험에 차이가 없게 구현
+<br>
+<br>
+</div>
+</details>
+
 
 ## Swift
 
