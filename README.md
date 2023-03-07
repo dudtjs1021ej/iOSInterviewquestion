@@ -413,10 +413,49 @@ Qos는 원래 네트워크에서 사용하는 용어로 서비스의 중요도�
 - scene delegate에 대해 설명하시오.
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
 
-###
-- NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
 
-###
+
+
+<details>
+<summary>NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.</summary>
+<div markdown="1">
+
+## **멀티스레딩을 위한 API**
+
+- 쉽고 편한 멀티 스레딩 처리를 위해 GCD & NSOperation 사용
+- NSOperation은 GCD보다 약간의 오버헤드가 더 발생되고 느리지만
+ GCD에서는 직접 처리해야 하는 작업들을 지원 하고 있기 때문에 (KVO관찰, 작업취소 등등) 그정도는 감수하고 사용할만함
+<br>
+
+### ⁉️ 왜 DispatchQueue를 GCD라 할까?
+<br>
+
+```swift
+💡Dispatch, also known as Grand Central Dispatch (GCD), contains language features,
+ runtime libraries, and system enhancements that provide systemic, 
+comprehensive improvements to the support for concurrent code execution 
+on multicore hardware in macOS, iOS, watchOS, and tvOS.
+```
+
+- GCD는 멀티코어 시스템에서 동시성 실행을 제공하는 프로그래밍 언어 요소, 런타임 라이브러리
+- 그래서 엄밀히 말하면 GCD ≠ DispatchQueue
+GCD 개념으로 동시성 프로그래밍을 지원하는 스위프트의 API == DispatchQueue
+<br>
+
+| GCD (Grand Central Dispatch) | NSOperationQueue |
+| --- | --- |
+| C기반 저수준 API | Obj-C 기반 고수준 API |
+| NSOperation보다 빠르고 오버헤드가 적음 | GCD보다 느리고 조금의 오버헤드 발생 |
+| Block Coding으로 단순 구현이 쉬움 | 다양한 작업들에 의존성 추가 가능 |
+| KVO 관찰, 작업 취소 등을 지원 | Task 재사용, 취소, 중지 가능 (GCD는 불가능) |
+|  | 대기열에 들어갈 수 있는 작업의 숫자를 지정함으로써 동시에 작업의 수를 지정할 수 있음 |
+
+(참고 https://zeddios.tistory.com/203)
+
+<br>
+<br>
+</div>
+</details>
 
 
 
