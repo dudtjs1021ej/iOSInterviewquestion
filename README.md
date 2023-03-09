@@ -654,7 +654,120 @@ class ViewController: UIViewController {
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
 - UIWindow 객체의 역할은 무엇인가?
 - UINavigationController 의 역할이 무엇인지 설명하시오.
-- TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
+
+<details>
+<summary>TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오. </summary>
+<div markdown="1">
+
+## TableView의 Datasource와 Delegate
+<img width="704" alt="image" src="https://user-images.githubusercontent.com/77915491/224035017-8814dcc1-0ac3-4228-b12d-a005352e16b2.png">
+
+
+- DataSoruce - 데이터를 받아 이를 뷰에 그려주는 역할
+- Delegate - 사용자가 보이는 것들 중 무언가에 대한 액션을 취한다면 그에 대한 동작 수행
+
+<br>
+
+## UITableViewDataSource 프로토콜 정의
+
+```swift
+@MainActor public protocol UITableViewDataSource : NSObjectProtocol {
+
+    
+    @available(iOS 2.0, *)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    @available(iOS 2.0, *)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+
+    
+    @available(iOS 2.0, *)
+    optional func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
+
+    
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? // fixed font style. use custom view (UILabel) if you want something different
+
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
+
+    
+    // Editing
+    
+    // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+
+    
+    // Moving/reordering
+    
+    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+
+    
+    // Index
+    
+    @available(iOS 2.0, *)
+    optional func sectionIndexTitles(for tableView: UITableView) -> [String]? // return list of section titles to display in section index view (e.g. "ABCD...Z#")
+
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int // tell table which section corresponds to section title/index (e.g. "B",1))
+
+    
+    // Data manipulation - insert and delete support
+    
+    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
+    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+
+    
+    // Data manipulation - reorder / moving support
+    
+    @available(iOS 2.0, *)
+    optional func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+}
+```
+
+`func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int`
+
+`func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell`
+
+위 메소드 두가지는  `optional` 이 붙지 않아 필수적으로 구현해야 한다.
+
+```swift
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   return 0
+}
+```
+
+- 각 섹션에 표시할 행의 개수를 묻는 메서드
+
+```swift
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
+   let cell = tableView.dequeueReusableCell(withIdentifier: "cellTypeIdentifier", for: indexPath)
+   cell.textLabel!.text = "Cell text"
+       
+   return cell
+}
+이 프로토콜의
+```
+
+- 특정 위치에 표시할 셀을 리턴하는 메서드
+
+<br>
+<br>
+
+</div>
+</details>
+
+
 - 하나의 View Controller 코드에서 여러 TableView Controller 역할을 해야 할 경우 어떻게 구분해서 구현해야 하는지 설명하시오.
 - setNeedsLayout와 setNeedsDisplay의 차이에 대해 설명하시오.
 ###
