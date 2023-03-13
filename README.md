@@ -219,29 +219,113 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 <summary> 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오. </summary>
 <div markdown="1">
 
+## 📌 AppDelegate
+
+### **func application(_: didFinishLaunchingWithOptions: ) -> Bool**
+
 ```swift
- //애플리케이션이 실행된 직후 사용자의 화면에 보여지기 직전에 호출 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool	
-
-//애플리케이션이 최초 실행될 때 호출되는 메소드 
-func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool		
-
-//애플리케이션이 InActive 상태로 전환되기 직전에 호출  task 일시정지, 타이머 비활성화, 일시정지(게임)
-func applicationWillResignActive(_ application: UIApplication)	
-
-//애플리케이션이 백그라운드 상태로 전환된 직후 호출
-func applicationDidEnterBackground(_ application: UIApplication)	
-
-//애플리케이션이 Active 상태가 되기 직전, 화면에 보여지기 직전에 호출 
-func applicationWillEnterForeground(_ application: UIApplication)	
-
-//애플리케이션이 Active 상태로 전환된 직후 호출
-func applicationDidBecomeActive(_ application: UIApplication)
-
-//애플리케이션이 종료되기 직전에 호출 
-func applicationWillTerminate(_ application: UIApplication)
-
 ```
+
+- 애플리케이션이 **실행된 직후 사용자의 화면에 보여지기 직전**에 호출
+
+<br>
+
+### **func application(_: configurationForConnecting:options: ) -> UISceneConfiguration**
+
+```swift
+func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration
+```
+
+- **사용자나 새로운 Scene이 생성될 때 호출**
+
+<br>
+
+### **func application (_ : didDiscardSceneSessions :)**
+
+```swift
+func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>)
+```
+
+- scene이 **background로 들어갔을 때** 시스템이 자원을 확보하기 위해 disconnect하려고 할 때 호출
+- app 종료와 다르다고 함
+
+<br>
+
+## ‼️13.0부터 SceneDelegate로 나뉨
+
+            
+
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/77915491/224705801-28274f3a-79d3-440a-ad6f-d0c6c838a89c.png">
+
+
+- iPad OS에서 **multi- window**가 가능해지면서 AppDelegate가 혼자서 맡던 역할 중 일부가 **SceneDelegate**에게 나눠지게 됨
+- **AppDelegate**는 앱의 생명주기를 관리 & **SceneDelegate** 스크린에 표시되어지는 UI의 생명주기를 관리하도록 변경
+
+<br>
+
+## 📌 ScenceDelegate
+
+### sceneWillResignActive
+
+```swift
+func sceneWillResignActive(_ scene: UIScene)
+```
+
+- 애플리케이션이 **InActive 상태로 전환되기 직전**에 호출
+- task 일시정지, 타이머 비활성화, 일시정지(게임)
+
+<br>
+
+### sceneDidEnterBackground
+
+```swift
+func applicationDidEnterBackground(_ application: UIApplication)	
+```
+
+- 애플리케이션이 **백그라운드 상태**로 전환된 직후 호출
+
+<br>
+
+### sceneWillEnterForeground
+
+```swift
+func sceneWillEnterForeground(_ scene: UIScene)
+```
+
+- 애플리케이션이 Active 상태가 되기 직전, **화면에 보여지기 직전**에 호출
+
+<br>
+
+### sceneDidBecomeActive
+
+```swift
+func applicationDidBecomeActive(_ application: UIApplication)
+```
+
+- 애플리케이션이 **Active 상태로 전환**된 **직후** 호출
+
+<br>
+
+### sceneDidDisconnect
+
+```swift
+func sceneDidDisconnect(_ scene: UIScene)
+```
+
+- 앱에서 **연결을 끊을 때** 호출
+
+<br>
+
+### Reference
+
+[https://developer.apple.com/documentation/uikit/uiapplicationdelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate)
+
+[https://velog.io/@2dubu/iOS-AppDelegate-SceneDelegate](https://velog.io/@2dubu/iOS-AppDelegate-SceneDelegate)
+
+<br>
+<br>
+
 </div>
 </details>
 
