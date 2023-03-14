@@ -494,7 +494,97 @@ Qos는 원래 네트워크에서 사용하는 용어로 서비스의 중요도�
 </div>
 </details>
 
-- scene delegate에 대해 설명하시오.
+<details>
+<summary> scene delegate에 대해 설명하시오. </summary>
+<div markdown="1">
+
+## 📌 iOS 13 이전
+
+iOS 13이전에는 SceneDelegate가 존재하지 않았다..! 
+
+대신 **AppDelegate**가 존재했는데 **AppDelegate**는 두가지 역할이 있었다.
+
+![image](https://user-images.githubusercontent.com/77915491/225007943-93038605-fc37-47a2-8e98-f760b6b09a84.png)
+
+1. 시스템이 프로세스가 시작되거나 종료될 때 appdelegate에게 알림
+2. 앱에 UI 상태를 알림 (예를 들어 앱이 포그라운드에 있거나 이제 active상태가 될거나 같은 걸 알려줌)
+
+사실 이런 역할은 12버전 이전에는 괜찮았다. 
+
+왜냐면 1개의 앱엔 1개의 사용자 인터페이스가 있었기때문!
+
+<br>
+
+## 📌 iOS 13 이후
+
+![image](https://user-images.githubusercontent.com/77915491/225008182-16b88cef-5493-4200-8905-06d2893892bc.png)
+
+
+but 13버전 이후부터는 1개의 앱이 여러개의 창(scene)을 가질 수 있게 되었다.
+
+그러면서 **SceneDelegate**가 등장하게 된 것이다!!
+
+위에 말했던 AppDelegate의 2번 역할을 씬딜리겟이 맡게 된다.
+
+
+추가로 AppDelegate는 **새로운 역할**을 받게 되는데
+ 새**로운 Scene세션이 생기거나 삭제될 때** 시스템이 AppDelegate에게 알리게 된다.
+
+(여기서 Session이 Discard된다 = 사용자가 앱을 위로 스와이프해 지웠을 때를 말함)
+
+<br>
+
+## 📌 Scene Delegate의 메소드
+
+### sceneWillResignActive
+
+```swift
+func sceneWillResignActive(_ scene: UIScene)
+```
+
+- 애플리케이션이 **InActive 상태로 전환되기 직전**에 호출
+- task 일시정지, 타이머 비활성화, 일시정지(게임)
+
+### sceneDidEnterBackground
+
+```swift
+func applicationDidEnterBackground(_ application: UIApplication)	
+```
+
+- 애플리케이션이 **백그라운드 상태**로 전환된 직후 호출
+
+### sceneWillEnterForeground
+
+```swift
+func sceneWillEnterForeground(_ scene: UIScene)
+```
+
+- 애플리케이션이 Active 상태가 되기 직전, **화면에 보여지기 직전**에 호출
+
+### sceneDidBecomeActive
+
+```swift
+func applicationDidBecomeActive(_ application: UIApplication)
+```
+
+- 애플리케이션이 **Active 상태로 전환**된 **직후** 호출
+
+### sceneDidDisconnect
+
+```swift
+func sceneDidDisconnect(_ scene: UIScene)
+```
+
+- 앱에서 **연결을 끊을 때** 호출
+
+### Reference
+
+[https://developer.apple.com/videos/play/wwdc2019/258/](https://developer.apple.com/videos/play/wwdc2019/258/)
+<br>
+<br>
+
+</div>
+</details>
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
 
 
