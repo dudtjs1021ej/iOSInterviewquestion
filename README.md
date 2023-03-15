@@ -1010,7 +1010,77 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 </details>
 
 
-- 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
+<details>
+<summary>오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)</summary>
+<div markdown="1">
+
+## 1. `Anchor` 사용하기
+
+```swift
+myView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).active = true
+myView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).active = true
+```
+
+<br>
+
+## 2. `NSLayoutConstraints` 사용하기
+
+```swift
+NSLayoutConstraint.activate([
+            navigationBarView.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationBarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            navigationBarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            navigationBarView.heightAnchor.constraint(equalToConstant: 76)
+        ])
+```
+
+<br>
+
+## 3. `Visual Format` 사용하기
+
+```swift
+let views = ["redView": redView,
+             "blueView": blueView,
+             "greenView": greenView]
+
+let format1 = "V:|-[redView]-8-[greenView]-|"
+let format2 = "H:|-[redView]-8-[blueView(==redView)]-|"
+let format3 = "H:|-[greenView]-|"
+
+var constraints = NSConstraint.constraints(withVisualFormat: format1,
+                    options: alignAllLeft,
+                    matrics: nil,
+                    views: views)
+constraints += NSConstraint.constraints(withVisualFormat: format2,
+                    options: alignAllTop,
+                    matrics: nil,
+                    views: views)
+constraints += NSConstraint.constraints(withVisualFormat: format3,
+                    options: []
+                    matrics: nil,
+                    views: views)
+NSConstraint.activateConstraints(constraints)
+```
+
+- 마치 아스키 아트처럼 보이는 문자열을 이용해서 제약요소값들을 생성하는 방식
+- 완전성보다는 좋은 시각화에 집중한 방식
+
+<br>
+
+### +`SnapKit` 라이브러리 사용
+
+```swift
+redBox.snp.makeConstraints { (make) in
+            make.width.height.equalTo(100) 
+            make.center.equalToSuperview()
+}
+```
+
+<br>
+
+</div>
+</details>
+
 - Intrinsic Size에 대해서 설명하시오.
 
 
