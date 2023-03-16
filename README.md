@@ -1081,8 +1081,35 @@ redBox.snp.makeConstraints { (make) in
 </div>
 </details>
 
-- Intrinsic Size에 대해서 설명하시오.
 
+<details>
+<summary>Intrinsic Size에 대해서 설명하시오.</summary>
+<div markdown="1">
+
+## **intrinsic content size란?**
+
+- 보통 UILabel의 사이즈는 따로 지정하지 않아도 에러가 뜨지 않는다. 
+why? → 콘텐츠의 크기만큼 기본사이즈가 있기 때문
+- **intrinsic content size == 고유 콘텐츠 크기**
+
+<br>
+
+## 만약에 고유 콘텐츠 크기에서 height만 늘리고 싶다면?
+
+```swift
+class Button: UIButton {
+	override var intrinsicContentSize: CGSize {
+			let height = self.contentSize.height + 10
+			return CGSize(width: self.contentSize.width, height: height)
+	}
+}
+```
+
+- `intrinsicContentSize` 를 오버라이딩하고 height만 현재 크기에서 원하는 크기만큼 늘려준다.
+<br>
+
+</div>
+</details>
 
 <details>
 <summary>Left Constraint 와 Leading Constraint 의 차이점을 설명하시오.</summary>
