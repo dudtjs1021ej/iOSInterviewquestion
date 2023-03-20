@@ -1379,7 +1379,34 @@ struct [구조체 이름] {
 </details>
 
 
-- String은 왜 subscript로 접근이 안되는지 설명하시오.
+
+<details>
+<summary>String은 왜 subscript로 접근이 안되는지 설명하시오. </summary>
+<div markdown="1">
+
+### 애플문서에 따르면 `String`은 `유니코드 문자열 값`이기 때문
+
+- 유니코드는 `가변 길이 문자 인코딩`으로 눈에 보이는 문자열이 하나더라도 실제 길이는 다름
+- ex) 🥰같은 이모지는 보이는 건 하나지만 실제로 print해보면 여러 개의 unicodeScalars가 찍힘
+- 따라서 `Int`로는 `subscript`를 사용할 수 없는 것
+
+<br>
+
+만약에 String의 subscript를 사용하고 싶다면 
+
+```swift
+let str = "hello sun"
+let index = str.index(str.startIndex, offsetBy: 2)
+print(str[index])
+```
+
+`String.Index`로 subscript를 사용해주면 됨
+
+<br>
+
+</div>
+</details>
+
 - instance 메서드와 class 메서드의 차이점을 설명하시오.
 - class 메서드와 static 메서드의 차이점을 설명하시오.
 - Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.
