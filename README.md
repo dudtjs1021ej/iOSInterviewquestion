@@ -726,10 +726,90 @@ textField.delegate = self
 
 
 
+<details>
+<summary> NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오. </summary>
+<div markdown="1">
+
+### `NotificationCenter`란?
+
+- observer(관찰자)에게 정보를 전달해주는 알림 발송 메커니즘
+
+<br>
+
+### 언제 Notification 센터를 사용?
+
+- 앱 내에서 공식적인 연결이 없는 두 개 이상의 컴포넌트들이 상호작용이 필요할 때
+- 상호작용이 반복적으로 그리고 지속적으로 이루어져야 할 때
+- 일대다 또는 다대다 통신을 사용하는 경우
+
+<br>
+
+### 1. `Observer`(관찰자) 등록
+
+```swift
+NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(scrollToBottom), // 알림을 받을 때 수행할 action
+            name: NSNotification.Name("TestNotification"),
+            object: nil
+)
+```
+
+- 알림을 받고 싶은 부분에 observer를 등록한다.
+
+<br>
+
+### 2. 알림 발송
+
+```swift
+NotificationCenter.default.post(
+name: NSNotification.Name("TestNotification"),
+ object: nil
+)
+```
+
+- observer에게 알림을 발송한다. 이때 object에 데이터도 함께 전달할 수 있다.
+
+<br>
+
+### 3. `Observer` 제거
+
+```swift
+NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name("TestNotification"),
+            object: nil
+)
+```
+
+- observer를 제거하지 않으면 메모리에 계속 남아있게 때문에 remove해준다.
+
+<br>
+
+### +`extension`을 활용하여 NotificationName 관리
+
+```swift
+extension Notification.Name {
+    static let testNotification = Notification.Name("TestNotification")
+}
+```
+
+```swift
+NotificationCenter.default.post(
+		name: .testNotification,
+		 object: nil
+)
+```
+
+- `Notification.Name` 에게 익스텐션을 붙여주면 코드가 간결해지고 휴먼 에러를 줄일 수 있다.
+
+<br>
+
+</div>
+</details>
 
 
 
-- NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
 - App Bundle의 구조와 역할에 대해 설명하시오.
 <details>
 <summary> 모든 View Controller 객체의 상위 클래스는 무엇이고 그 역할은 무엇인가? </summary>
